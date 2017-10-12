@@ -5,6 +5,7 @@
   "main": "index.js",
   "author": "Gary Bolatov",
   "license": "ISC",
+  "repository": "https://github.com/Yessengerey/blue-ball-red-ball",
   "scripts": {
     "react-dev": "webpack -d --watch",
     "server-dev": "nodemon server/server.js"
