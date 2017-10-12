@@ -13,3 +13,6 @@ bundle.js
 
 # To prevent tracking of DS Store file
 .DS_Store
+
+# To prevent tracking of package lock json file until full deployment
+package-lock.json
