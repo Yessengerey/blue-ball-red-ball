@@ -1,0 +1,15 @@
+# Compiled directories
+build/
+dist/
+
+# Dependency directories
+node_modules/
+
+# Process env
+.env
+
+# Webpack Bundle file should be untracked at least until full deployment
+bundle.js
+
+# To prevent tracking of DS Store file
+.DS_Store

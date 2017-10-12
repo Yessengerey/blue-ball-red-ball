@@ -1,0 +1,29 @@
+{
+  "name": "blue-ball-red-ball",
+  "version": "1.0.0",
+  "description": "Shows a user an image of either a red or blue ball upon visiting the page.",
+  "main": "index.js",
+  "author": "Gary Bolatov",
+  "license": "ISC",
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.7.2",
+    "body-parser": "^1.17.2",
+    "css-loader": "^0.28.4",
+    "express": "^4.15.4",
+    "mongoose": "^4.11.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "request": "^2.81.0",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.5.1"
+  },
+}
