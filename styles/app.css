@@ -23,8 +23,7 @@
 }
 
 .title:hover {
-  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
-  color: white;
+  background: -webkit-linear-gradient(left, #ed4445, rgba(255, 255, 255, 0.79), rgba(255, 255, 255, 0.79), rgba(255, 255, 255, 0.79), #4d69f6);
 }
 
 .ball_display {

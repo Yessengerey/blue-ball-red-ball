@@ -16,7 +16,7 @@ const ControlPanel = (props) => {
   if (props.status === 'home') {
     homeRefreshButton = <button type='button' onClick={props.determineBall}>PLAY!</button>;
   } else if (props.status === 'statistics') {
-    homeRefreshButton = <button type='button' onClick={goToHome}>HOME</button>;
+    homeRefreshButton = <button type='button' onClick={goToHome}>BACK</button>;
   }
 
   return (
