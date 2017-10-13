@@ -14,15 +14,14 @@ class App extends React.Component {
   }
 
   componentWillMount() {
-    var blueBallElement = <div>BLUE BALL</div>;
-    var redBallElement = <div>RED BALL</div>;
+    var blueBallElement = <div><img src='/assets/blueball.png'/></div>;
+    var redBallElement = <div><img src='/assets/redball.png'/></div>;
     this.setState({
       displayBall: Rand.randomize() ? blueBallElement : redBallElement
     });
   }
 
   render() {
-
 
     return (
       <div>
