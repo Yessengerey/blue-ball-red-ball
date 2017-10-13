@@ -1,6 +1,5 @@
 # Compiled directories
 build/
-dist/
 
 # Dependency directories
 node_modules/
