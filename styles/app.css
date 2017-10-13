@@ -1,20 +1,33 @@
 .app_container {
   display: flex;
+  display: -webkit-flex;
   flex-direction: column;
+  -webkit-flex-direction: column;
   justify-content: center;
+  -webkit-justify-content: center;
   align-items: center;
+  -webkit-align-items: center;
   width: 70%;
+  font-family: 'Exo Medium';
+  background: url(/assets/field.jpg);
+  box-shadow: 0px 3px 18px black;
 }
 
 .title {
   width: 100%;
   text-align: center;
+  line-height: 70px;
   font-size: 40px;
   font-family: 'Exo Medium';
-  border-radius: 0 0 20px 20px;
-  background-color: #dddbdb;
+  background-color: rgba(255, 255, 255, 0.79);
+}
+
+.title:hover {
+  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
+  color: white;
 }
 
 .ball_display {
-  padding: 40px;
+  margin: 40px;
+  height: 300px;
 }

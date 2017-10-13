@@ -1,11 +1,39 @@
 .control_panel {
+  width: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.64);
+  box-shadow: 0 0 10px 1px #747272;
+  line-height: 30px;
   width: 100%;
   text-align: center;
+  padding: 10px 0px 10px 0;
 }
 
 .control_panel button {
-  font-size: 2vw;
+  font-size: 2.5vw;
   font-family: 'Exo Medium';
   margin: 10px;
   width: 50%;
+  padding: 7px;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 0px 14px #161616;
+  border-radius: 5px;
+}
+
+.control_panel button:hover {
+  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
+  background: linear-gradient(to right, #ed4445 , #4d69f6);
+  color: white;
+}
+
+.control_panel button:active {
+  box-shadow: inset 0px 0px 14px #161616;
+  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
+  background: linear-gradient(to right, #ed4445 , #4d69f6);
+  color: white;
+}
+
+.control_panel button:focus {
+  outline: 0;
 }
