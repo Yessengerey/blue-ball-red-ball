@@ -8,10 +8,9 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      redBallCount: (document.cookie && parseInt(CookieParser.parse(document.cookie).redBallCount)) || 0, // If cookie doesn't exist, then default counts to 0
-      blueBallCount: (document.cookie && parseInt(CookieParser.parse(document.cookie).blueBallCount)) || 0,
-      displayBall: '',
-      username: ''
+      redBallElement: <div><img src='/assets/redball.png'/></div>,
+      blueBallElement: <div><img src='/assets/blueball.png'/></div>,
+      displayBall: parseInt(CookieParser.parse(document.cookie).currentBall) ? <div><img src='/assets/blueball.png'/></div> : <div><img src='/assets/redball.png'/></div>
     }
 
     this.determineBall = this.determineBall.bind(this);
@@ -19,26 +18,35 @@ class App extends React.Component {
   }
 
   updateBallCounts(ballNumber) {
-    if (ballNumber) {
-      this.setState({
-        redBallCount: this.state.blueBallCount += 1
-      });
-    } else {
-      this.setState({
-        redBallCount: this.state.redBallCount += 1
-      });
+    console.log('doc cookie', document.cookie);
+    var cookieObject = CookieParser.parse(document.cookie);
+    console.log('COOKIE', cookieObject);
+    switch (ballNumber) {
+      // Red Ball
+      case 0:
+
+        var redCount = parseInt(cookieObject.redBallCount);
+        console.log('redCount', redCount);
+        redCount++;
+        document.cookie = `redBallCount=${redCount}`;
+        break;
+      // Blue Ball
+      case 1:
+        var blueCount = parseInt(cookieObject.redBallCount);
+        console.log('blueCount', blueCount);
+        blueCount++;
+        document.cookie = `blueBallCount=${blueCount}`;
+        break;
     }
   }
 
   determineBall() {
-    var blueBallElement = <div><img src='/assets/blueball.png'/></div>;
-    var redBallElement = <div><img src='/assets/redball.png'/></div>;
-
     var ballNumber = Rand.randomize(); // 1 - Blue Ball, 0 - Red Ball
 
     this.setState({
-      displayBall: ballNumber ? blueBallElement : redBallElement
+      displayBall: ballNumber ? this.state.blueBallElement : this.state.redBallElement
     }, () => {
+      document.cookie = `currentBall=${ballNumber}`;
       this.updateBallCounts(ballNumber);
     });
   }
@@ -46,17 +54,22 @@ class App extends React.Component {
   // expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'
 
   componentWillMount() {
-    this.determineBall();
+    if (!document.cookie) {
+      document.cookie = 'blueBallCount=0';
+      document.cookie = 'redBallCount=0';
+      this.determineBall();
+    }
   }
 
   render() {
-    console.log(document.cookie);
-    console.log('in state', this.state.blueBallCount);
     return (
       <div>
         Welcome to Blue ball - Red ball!
         <div className='ball'>
           {this.state.displayBall}
+        </div>
+        <div className='refreshButton'>
+          <button type='button' onClick={this.determineBall}>Refresh</button>
         </div>
       </div>
     )

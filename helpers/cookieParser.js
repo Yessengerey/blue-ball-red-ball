@@ -1,7 +1,7 @@
 module.exports = {
   parse: (cookie) => {
     var cookieObject = {};
-    var keyValueStringPairs = cookie.split(';');
+    var keyValueStringPairs = cookie.split(' ').join('').split(';');
 
     for (var i = 0; i < keyValueStringPairs.length; i++) {
       var keyValuePair = keyValueStringPairs[i].split('=');
