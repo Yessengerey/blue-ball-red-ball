@@ -1,0 +1,11 @@
+.control_panel {
+  width: 100%;
+  text-align: center;
+}
+
+.control_panel button {
+  font-size: 2vw;
+  font-family: 'Exo Medium';
+  margin: 10px;
+  width: 50%;
+}

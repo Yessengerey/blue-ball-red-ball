@@ -1,5 +1,7 @@
 import React from 'react';
 
+import style from '../../../styles/controlPanel.css';
+
 const ControlPanel = (props) => {
 
   var goToStatistics = () => {
@@ -12,15 +14,15 @@ const ControlPanel = (props) => {
 
   let homeRefreshButton = '';
   if (props.status === 'home') {
-    homeRefreshButton = <button type='button' onClick={props.determineBall}>Refresh</button>;
+    homeRefreshButton = <button type='button' onClick={props.determineBall}>REFRESH</button>;
   } else if (props.status === 'statistics') {
-    homeRefreshButton = <button type='button' onClick={goToHome}>Home</button>;
+    homeRefreshButton = <button type='button' onClick={goToHome}>HOME</button>;
   }
 
   return (
-    <div>
-      <button onClick={goToStatistics}>Statistics</button>
+    <div className={style.control_panel}>
       {homeRefreshButton}
+      <button onClick={goToStatistics}>STATISTICS</button>
     </div>
   )
 }

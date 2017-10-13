@@ -83,7 +83,7 @@ class App extends React.Component {
 
     let ballsOrStats = '';
     if (this.state.status === 'home') {
-      ballsOrStats = <div className='ball'>
+      ballsOrStats = <div className={style.ball_display}>
         {this.state.displayBall}
       </div>;
     } else if (this.state.status === 'statistics') {
@@ -93,12 +93,10 @@ class App extends React.Component {
     return (
       <div className={style.app_container}>
         <div className={style.title}>
-          Red vs Blue
+          <span style={{color: '#ed4647'}}>RED</span> vs <span style={{color: '#4c6afe'}}>BLUE</span>
         </div>
         {ballsOrStats}
-        <div className='control_panel'>
-          <ControlPanel determineBall={this.determineBall} status={this.state.status} changeStatus={this.changeStatus}/>
-        </div>
+        <ControlPanel determineBall={this.determineBall} status={this.state.status} changeStatus={this.changeStatus}/>
       </div>
     )
   }
