@@ -10,6 +10,9 @@ import CookieParser from '../../helpers/cookieParser.js';
 import ControlPanel from './components/controlPanel.jsx';
 import Statistics from './components/statistics.jsx';
 
+// Styles
+import style from '../../styles/app.css';
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -38,21 +41,17 @@ class App extends React.Component {
   }
 
   updateBallCounts(ballNumber) {
-    console.log('doc cookie', document.cookie);
     var cookieObject = CookieParser.parse(document.cookie);
-    console.log('COOKIE', cookieObject);
     switch (ballNumber) {
       // Red Ball
       case 0:
         var redCount = parseInt(cookieObject.redBallCount);
-        console.log('redCount', redCount);
         redCount++;
         document.cookie = `redBallCount=${redCount}`;
         break;
       // Blue Ball
       case 1:
         var blueCount = parseInt(cookieObject.redBallCount);
-        console.log('blueCount', blueCount);
         blueCount++;
         document.cookie = `blueBallCount=${blueCount}`;
         break;
@@ -92,8 +91,10 @@ class App extends React.Component {
     }
 
     return (
-      <div>
-        Welcome to Blue ball - Red ball!
+      <div className={style.app_container}>
+        <div className={style.title}>
+          Red vs Blue
+        </div>
         {ballsOrStats}
         <div className='control_panel'>
           <ControlPanel determineBall={this.determineBall} status={this.state.status} changeStatus={this.changeStatus}/>
