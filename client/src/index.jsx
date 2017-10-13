@@ -1,8 +1,14 @@
+// React
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Helpers
 import Rand from '../../helpers/randomizer.js';
 import CookieParser from '../../helpers/cookieParser.js';
+
+// Components
+import ControlPanel from './components/controlPanel.jsx';
+import Statistics from './components/statistics.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -10,11 +16,25 @@ class App extends React.Component {
     this.state = {
       redBallElement: <div><img src='/assets/redball.png'/></div>,
       blueBallElement: <div><img src='/assets/blueball.png'/></div>,
-      displayBall: parseInt(CookieParser.parse(document.cookie).currentBall) ? <div><img src='/assets/blueball.png'/></div> : <div><img src='/assets/redball.png'/></div>
+      displayBall: parseInt(CookieParser.parse(document.cookie).currentBall) ? <div><img src='/assets/blueball.png'/></div> : <div><img src='/assets/redball.png'/></div>,
+      status: 'home'
     }
 
     this.determineBall = this.determineBall.bind(this);
     this.updateBallCounts = this.updateBallCounts.bind(this);
+    this.changeStatus = this.changeStatus.bind(this);
+  }
+
+  changeStatus(status) {
+    if (status === 'home') {
+      this.setState({
+        status: 'home'
+      });
+    } else if (status === 'statistics') {
+      this.setState({
+        status: 'statistics'
+      })
+    }
   }
 
   updateBallCounts(ballNumber) {
@@ -24,7 +44,6 @@ class App extends React.Component {
     switch (ballNumber) {
       // Red Ball
       case 0:
-
         var redCount = parseInt(cookieObject.redBallCount);
         console.log('redCount', redCount);
         redCount++;
@@ -62,14 +81,22 @@ class App extends React.Component {
   }
 
   render() {
+
+    let ballsOrStats = '';
+    if (this.state.status === 'home') {
+      ballsOrStats = <div className='ball'>
+        {this.state.displayBall}
+      </div>;
+    } else if (this.state.status === 'statistics') {
+      ballsOrStats = <Statistics />;
+    }
+
     return (
       <div>
         Welcome to Blue ball - Red ball!
-        <div className='ball'>
-          {this.state.displayBall}
-        </div>
-        <div className='refreshButton'>
-          <button type='button' onClick={this.determineBall}>Refresh</button>
+        {ballsOrStats}
+        <div className='control_panel'>
+          <ControlPanel determineBall={this.determineBall} status={this.state.status} changeStatus={this.changeStatus}/>
         </div>
       </div>
     )
