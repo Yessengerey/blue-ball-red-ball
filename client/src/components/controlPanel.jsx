@@ -1,5 +1,7 @@
+// React
 import React from 'react';
 
+// Styles
 import style from '../../../styles/controlPanel.css';
 
 const ControlPanel = (props) => {
@@ -22,7 +24,7 @@ const ControlPanel = (props) => {
   return (
     <div className={style.control_panel}>
       {homeRefreshButton}
-      <button onClick={goToStatistics}>STATISTICS</button>
+      <button onClick={goToStatistics}>SCOREBOARD</button>
     </div>
   )
 }

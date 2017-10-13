@@ -44,7 +44,7 @@
   border-top: 2px solid #939393;
   width: 50%;
   border-bottom: 2px solid #939393;
-  height: 200px; 
+  height: 200px;
   display: flex;
   display: -webkit-flex;
   flex-direction: column;
@@ -60,4 +60,33 @@
 .team_score {
   font-size: 5vw;
   color: #3b3b3b;
+}
+
+#reset_button {
+  font-size: 1.3vw;
+  font-family: 'Exo Medium';
+  margin: 10px;
+  width: 50%;
+  padding: 7px;
+  border: none;
+  background-color: white;
+  box-shadow: 0px 0px 14px #161616;
+  border-radius: 5px;
+}
+
+#reset_button:hover {
+  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
+  background: linear-gradient(to right, #ed4445 , #4d69f6);
+  color: white;
+}
+
+#reset_button:active {
+  box-shadow: inset 0px 0px 14px #161616;
+  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
+  background: linear-gradient(to right, #ed4445 , #4d69f6);
+  color: white;
+}
+
+#reset_button:focus {
+  outline: 0;
 }

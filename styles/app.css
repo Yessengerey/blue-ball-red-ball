@@ -36,7 +36,7 @@
   height: 300px;
 }
 
-.enlarge {
+.reappear {
   animation-name: appear;
   animation-duration: 1s;
 }

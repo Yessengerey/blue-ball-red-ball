@@ -37,6 +37,14 @@ class App extends React.Component {
       this.setState({
         status: 'statistics'
       })
+    } else if (status === 'reset') {
+      document.cookie =
+      this.setState({
+        status: 'home'
+      }, () => {
+        document.cookie = 'blueBallCount=0';
+        document.cookie = 'redBallCount=0';
+      });
     }
   }
 
@@ -46,9 +54,9 @@ class App extends React.Component {
       // Red Ball
       case 0:
         var redBallImg = document.getElementById('red_img').classList;
-        redBallImg.add(style.enlarge);
+        redBallImg.add(style.reappear);
         setTimeout(() => {
-          redBallImg.remove(style.enlarge);
+          redBallImg.remove(style.reappear);
         }, 500);
 
         var redCount = parseInt(cookieObject.redBallCount);
@@ -58,12 +66,12 @@ class App extends React.Component {
       // Blue Ball
       case 1:
         var blueBallImg = document.getElementById('blue_img').classList;
-        blueBallImg.add(style.enlarge);
+        blueBallImg.add(style.reappear);
         setTimeout(() => {
-          blueBallImg.remove(style.enlarge);
+          blueBallImg.remove(style.reappear);
         }, 500);
 
-        var blueCount = parseInt(cookieObject.redBallCount);
+        var blueCount = parseInt(cookieObject.blueBallCount);
         blueCount++;
         document.cookie = `blueBallCount=${blueCount}`;
         break;
@@ -99,7 +107,7 @@ class App extends React.Component {
         {this.state.displayBall}
       </div>;
     } else if (this.state.status === 'statistics') {
-      ballsOrStats = <Statistics />;
+      ballsOrStats = <Statistics changeStatus={this.changeStatus}/>;
     }
 
     return (
