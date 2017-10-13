@@ -17,8 +17,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      redBallElement: <div><img src='/assets/redball.png'/></div>,
-      blueBallElement: <div><img src='/assets/blueball.png'/></div>,
+      redBallElement: <div><img id='red_img' src='/assets/redball.png'/></div>,
+      blueBallElement: <div><img id='blue_img' src='/assets/blueball.png'/></div>,
       displayBall: parseInt(CookieParser.parse(document.cookie).currentBall) ? <div><img src='/assets/blueball.png'/></div> : <div><img src='/assets/redball.png'/></div>,
       status: 'home'
     }
@@ -45,12 +45,24 @@ class App extends React.Component {
     switch (ballNumber) {
       // Red Ball
       case 0:
+        var redBallImg = document.getElementById('red_img').classList;
+        redBallImg.add(style.enlarge);
+        setTimeout(() => {
+          redBallImg.remove(style.enlarge);
+        }, 500);
+
         var redCount = parseInt(cookieObject.redBallCount);
         redCount++;
         document.cookie = `redBallCount=${redCount}`;
         break;
       // Blue Ball
       case 1:
+        var blueBallImg = document.getElementById('blue_img').classList;
+        blueBallImg.add(style.enlarge);
+        setTimeout(() => {
+          blueBallImg.remove(style.enlarge);
+        }, 500);
+
         var blueCount = parseInt(cookieObject.redBallCount);
         blueCount++;
         document.cookie = `blueBallCount=${blueCount}`;

@@ -26,7 +26,17 @@
   background: -webkit-linear-gradient(left, #ed4445, rgba(255, 255, 255, 0.79), rgba(255, 255, 255, 0.79), rgba(255, 255, 255, 0.79), #4d69f6);
 }
 
+@keyframes appear {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 .ball_display {
   margin: 40px;
   height: 300px;
+}
+
+.enlarge {
+  animation-name: appear;
+  animation-duration: 1s;
 }
