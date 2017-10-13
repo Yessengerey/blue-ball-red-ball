@@ -1,0 +1,63 @@
+.stats_container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+  justify-content: baseline;
+  -webkit-justify-content: baseline;
+  align-items: center;
+  -webkit-align-items: center;
+  max-height: 340px;
+  min-height: 340px;
+  padding: 0 0 40px 0;
+  background-color: rgba(255, 255, 255, 0.79);
+  width: 50%;
+}
+
+.stats_teams_container {
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+  width: 100%;
+  text-align: center;
+}
+
+.stats_title {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5vw;
+  padding: 15px 0;
+  background-color: red;
+  color: white;
+  background: -webkit-linear-gradient(left, #ed4445 , #4d69f6);
+  background: linear-gradient(to right, #ed4445 , #4d69f6);
+  margin-bottom: 20px;
+  box-shadow: inset 0px 2px 9px #3d3d3d;
+}
+
+.team_container {
+  border-top: 2px solid #939393;
+  width: 50%;
+  border-bottom: 2px solid #939393;
+  /* height: 300px; */
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: column;
+  -webkit-flex-direction: column;
+}
+
+.team_title {
+  margin: 10px 0 10px 0;
+  background-color: rgba(255, 255, 255, 0.79);
+  font-size: 2.3vw;
+}
+
+.team_score {
+  font-size: 5vw;
+  color: #3b3b3b;
+}
